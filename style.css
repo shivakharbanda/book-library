@@ -10,6 +10,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    gap: 25px;
 }
 .cards {
     display: grid;
@@ -22,12 +23,22 @@ p:nth-child(n) {
     background-color: aqua;
     padding: 5px;
     font-weight: bold;
+    margin: 0px;
 }
 
 form > input {
     margin: 10px;
 }
 
-.removeBtn {
-    height: 20px;
+.card > button {
+    height: 35px;
 }
+
+.read {
+   background-color: #9fff9c;
+}
+
+.not_read {
+    background-color: #ff9c9c;
+ }
+ 

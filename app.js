@@ -58,27 +58,35 @@ function generateCards(arr) {
         titleP = document.createElement("p");
         authorP = document.createElement("p");
         pagesP = document.createElement("p");;
-        readP = document.createElement("p");
 
         titleP.textContent = `Title : ${element.title}`;
         authorP.textContent = `Author : ${element.author}`;
         pagesP.textContent = `Total Pages : ${element.pages}`;
         //console.log(element);
-        readP.textContent = `Read? : ${element.readStatus ? "YES": "NO"}`;
-
+        readToggleBtn = document.createElement("button");
+        readToggleBtn.classList.add("readToggleBtn");
+        readToggleBtn.textContent = `${element.readStatus ? "Read": "Not Read"}`;
+        if (readToggleBtn.textContent == "Read") {
+            readToggleBtn.classList.add("read");
+        } else if(readToggleBtn.textContent == "Not Read") {
+            readToggleBtn.classList.add("not_read");
+        }
         newCard.appendChild(titleP);
         newCard.appendChild(authorP);
         newCard.appendChild(pagesP);
-        newCard.appendChild(readP);
+        newCard.appendChild(readToggleBtn);
 
         removeBtn = document.createElement("button");
         removeBtn.classList.add("removeBtn");
         removeBtn.setAttribute("data-index", count)
         removeBtn.textContent = "Remove Card"
+
+        
         
 
         cardContainer.appendChild(newCard);
         newCard.appendChild(removeBtn)
+
         count += 1;
     });
 
@@ -91,6 +99,28 @@ function generateCards(arr) {
             //console.log(btn.dataset.index);
             arr.splice(btn.dataset.index, 1);
             generateCards(arr);
+
+        });
+    });
+
+
+    readToggleBtns = document.querySelectorAll(".readToggleBtn");
+
+    [...readToggleBtns].forEach(btn => {
+        //console.log(btn);
+
+        btn.addEventListener("click", () => {
+            let status = btn.textContent;
+            //console.log(status);
+            if (status == "Read") {
+                btn.textContent = "Not Read";
+                btn.classList.remove("read");
+                btn.classList.add("not_read");
+            } else if (status == "Not Read")  {
+                btn.textContent = "Read";
+                btn.classList.remove("not_read");
+                btn.classList.add("read")
+            }
 
         });
     });
