@@ -37,7 +37,7 @@ function addBookToLibrary(arr) {
 
 
 submitBtn.addEventListener("click", () => {
-    if (document.querySelector("#title").value == "" && document.querySelector("#author").value == "" && document.getElementById("pages").value == "") {
+    if (document.querySelector("#title").value == "" || document.querySelector("#author").value == "" || document.getElementById("pages").value == "") {
         alert("empty fields not allowd!!")
         return;
     };
@@ -66,6 +66,9 @@ function generateCards(arr) {
         readToggleBtn = document.createElement("button");
         readToggleBtn.classList.add("readToggleBtn");
         readToggleBtn.textContent = `${element.readStatus ? "Read": "Not Read"}`;
+
+        readToggleBtn.setAttribute("data-index", count)
+
         if (readToggleBtn.textContent == "Read") {
             readToggleBtn.classList.add("read");
         } else if(readToggleBtn.textContent == "Not Read") {
@@ -120,7 +123,11 @@ function generateCards(arr) {
                 btn.textContent = "Read";
                 btn.classList.remove("not_read");
                 btn.classList.add("read")
-            }
+            };
+
+            arr[btn.dataset.index].readStatus = arr[btn.dataset.index].readStatus ? false : true;
+
+            console.log() 
 
         });
     });
