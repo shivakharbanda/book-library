@@ -20,8 +20,11 @@
     <body>
         
         <div class="container">
-            <div class="sidebar">
+            <div class="header">
+                <button class="add">+ add Item</button>
+            </div>
 
+            <div class="out-view" id="form">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" id="title" minlength="3"> <br>
@@ -37,11 +40,16 @@
                     <input type="radio" id="not_read" name="read_or_not" checked="checked"> 
                     <label for="not_read">haven't read yet</label> <br>
                     
-
-                    <button class="add_item">Add Item</button>
+                    <div class="form-btns">
+                        <button class="add_item">Add Item</button> 
+                        <button class="cancel">cancel</button>
+                    </div>
+                    
                 </div>
-                
             </div>
+                
+                
+
             <div class="cards">
                 
             </div>

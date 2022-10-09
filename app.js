@@ -90,6 +90,14 @@ function generateCards(arr) {
         cardContainer.appendChild(newCard);
         newCard.appendChild(removeBtn)
 
+        form = document.getElementById("form");
+        //console.log(form);
+    
+        form.classList.remove("in-view");
+        form.classList.add("out-view");
+
+
+
         count += 1;
     });
 
@@ -136,3 +144,25 @@ function generateCards(arr) {
 };
 
 
+showFormBtn = document.querySelector(".add");
+
+showFormBtn.addEventListener("click", () => {
+    form = document.getElementById("form");
+    console.log(form);
+
+    form.classList.add("in-view");
+    form.classList.remove("out-view");
+});
+
+
+cancelBtn = document.querySelector(".cancel");
+//console.log(cancelBtn);
+
+
+cancelBtn.addEventListener("click", () => {
+    form = document.getElementById("form");
+    //console.log(form);
+
+    form.classList.remove("in-view");
+    form.classList.add("out-view");
+});
