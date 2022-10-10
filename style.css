@@ -6,7 +6,7 @@
 }
 
 .card {
-	width: 300px;
+	width: 25%;
 	height: 300px;
 	/* border: 1px solid; */
 	border-radius: 5px;
@@ -16,7 +16,6 @@
 	gap: 20px;
 	background-color: white;
 }
-
 .card > button {
     height: 40px;
 }
