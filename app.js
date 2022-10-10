@@ -19,7 +19,7 @@ function addBookToLibrary(arr) {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.getElementById("pages").value;
-    let read = document.getElementById("not_read").checked?false:true;
+    let read = document.getElementById("read").checked?true:false;
 
     //console.log(title, author, pages, read);
 
