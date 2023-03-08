@@ -39,11 +39,49 @@ function addBookToLibrary(arr) {
 
 
 submitBtn.addEventListener("click", () => {
-    if (document.querySelector("#title").value == "" || document.querySelector("#author").value == "" || document.getElementById("pages").value == "") {
-        alert("empty fields not allowd!!")
-        return;
-    };
-    addBookToLibrary(myLibrary);
+
+
+
+    // if (document.querySelector("#title").value == "" || document.querySelector("#author").value == "" || document.getElementById("pages").value == "") {
+    //     alert("empty fields not allowd!!")
+    //     return;
+    // };
+
+    let isFormValid = true
+    debugger;
+    let title = document.getElementById("title");
+    let author = document.getElementById("author");
+    let pages = document.getElementById("pages");
+
+    if (title.validity.tooShort) {
+        title.setCustomValidity("length of title should be atleast 3")
+        isFormValid = false
+    } else if (title.validity.valueMissing) {
+        title.setCustomValidity("title cannot be null")
+        isFormValid = false
+    }
+
+    if (author.validity.tooShort) {
+        author.setCustomValidity("length of author should be atleast 3")
+        isFormValid = false
+    } else if (author.validity.valueMissing) {
+        author.setCustomValidity("author cannot be null")
+        isFormValid = false
+    }
+
+    if (pages.validity.badInput) {
+        pages.setCustomValidity("pages can only be a number")
+        isFormValid = false
+    } else if (pages.validity.valueMissing) {
+        pages.setCustomValidity("pages cannot be null")
+        isFormValid = false
+    }
+
+    if (isFormValid) {
+        addBookToLibrary(myLibrary);
+    } else {
+        document.forms["form"].reportValidity()
+    }
 });
 
 function generateCards(arr) {
